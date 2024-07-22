@@ -1,0 +1,34 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ser_cam">
+  <table width="407" border="1" class="table table-hover">
+    <tr>
+        <td colspan="1">User</td>
+        <td colspan="2">
+        <input type="text" name="textfield" value="{{ cm }}" required class="form-control"/>
+      </td>
+        <td>
+        <input type="submit" name="Submit" value="Search"  class="btn btn-primary"/>
+      </td>
+    </tr>
+    <tr>
+      <th>Sl.No</th>
+      <th>Camera Id </th>
+      <th>Details</th>
+      <th>User</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.camNo }}</td>
+      <td>{{ i.details}}</td>
+       <td>{{ i.USER.firstname }} {{ i.USER.lastname }}</td>
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

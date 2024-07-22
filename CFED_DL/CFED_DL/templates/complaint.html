@@ -1,0 +1,38 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ser_comp">
+  <table width="273" border="1" class="table table-hover">
+    <tr>
+        <td colspan="1">Date</td>
+        <td colspan="2">
+            <input type="date" name="textfield" value="{{ cp }}" required class="form-control" />
+        </td>
+        <td colspan="2">
+            <input type="submit" name="Submit" value="Search"  class="btn btn-primary"/>
+        </td>
+    </tr>
+    <tr>
+      <th>Sl.No</th>
+      <th>Complaint</th>
+      <th>User</th>
+      <th>Date</th>
+      <th>Reply</th>
+    </tr>
+ {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.complaint }}</td>
+      <td>{{ i.USER.firstname }} {{ i.USER.lastname }}</td>
+      <td>{{ i.date }}</td>
+      <td>{% if i.reply == "Pending" %}
+          <a href="/reply/{{ i.id }}">Reply</a>
+      {% else %}{{ i.reply }}{% endif %}</td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/reply_code">
+  <table width="214" border="1" class="table table-hover">
+    <tr>
+      <td colspan="4" >Reply
+        <label>
+        <input type="text" name="textfield" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Send"  class="btn btn-primary" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
